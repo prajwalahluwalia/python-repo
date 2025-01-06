@@ -1,0 +1,164 @@
+[
+    {
+        "label": "Engine",
+        "kind": 6,
+        "importPath": "oops.coupling",
+        "description": "oops.coupling",
+        "peekOfCode": "class Engine:\n    def __init__(self):\n        pass\n    def start(self):\n        return f\"Engine is starting\"\nclass Car:\n    def __init__(self, engine):\n        self.engine = engine\n    def drive(self):\n        return f\"Car is driving.\"",
+        "detail": "oops.coupling",
+        "documentation": {}
+    },
+    {
+        "label": "Car",
+        "kind": 6,
+        "importPath": "oops.coupling",
+        "description": "oops.coupling",
+        "peekOfCode": "class Car:\n    def __init__(self, engine):\n        self.engine = engine\n    def drive(self):\n        return f\"Car is driving.\"\nengine = Engine()\ncar = Car(engine)\nprint(car.drive())\nprint(car.engine.start())",
+        "detail": "oops.coupling",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "oops.coupling",
+        "description": "oops.coupling",
+        "peekOfCode": "engine = Engine()\ncar = Car(engine)\nprint(car.drive())\nprint(car.engine.start())",
+        "detail": "oops.coupling",
+        "documentation": {}
+    },
+    {
+        "label": "car",
+        "kind": 5,
+        "importPath": "oops.coupling",
+        "description": "oops.coupling",
+        "peekOfCode": "car = Car(engine)\nprint(car.drive())\nprint(car.engine.start())",
+        "detail": "oops.coupling",
+        "documentation": {}
+    },
+    {
+        "label": "Bank",
+        "kind": 6,
+        "importPath": "oops.encapsulation",
+        "description": "oops.encapsulation",
+        "peekOfCode": "class Bank:\n    def __init__(self, id, name, balance):\n        self.__id = id\n        self.name = name\n        self.__balance = balance\n    def getId(self):\n        return f\"Id of the user is {self.__id}\"\n    def __getBalance(self):\n        return f\"Cuurent balance is {self.__balance}\"\n    def makeTransaction(self, amount, type=\"\"):",
+        "detail": "oops.encapsulation",
+        "documentation": {}
+    },
+    {
+        "label": "user",
+        "kind": 5,
+        "importPath": "oops.encapsulation",
+        "description": "oops.encapsulation",
+        "peekOfCode": "user = Bank(1,\"Prajwal\", 20000)\nprint(user.makeTransaction(-12))    #Please enter valid transaction type.\nprint(user.makeTransaction(-12,\"deposit\"))      #Please select valid amount.\nprint(user.makeTransaction(12000,\"deposit\"))    #Update balance is 32000\nprint(user.makeTransaction(2000, \"withdraw\"))   #Update balance is 30000\nprint(user.__getBalance())      #Throws error",
+        "detail": "oops.encapsulation",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "oops.inheritence",
+        "description": "oops.inheritence",
+        "peekOfCode": "class User:\n    def __init__(self, type):\n        self.type = type\n    def getUserType(self):\n        return f\"User is: {self.type}\"\nclass Student(User):\n    def __init__(self, id, name, type):\n        super().__init__(type)\n        self.id = id\n        self.name = name",
+        "detail": "oops.inheritence",
+        "documentation": {}
+    },
+    {
+        "label": "Student",
+        "kind": 6,
+        "importPath": "oops.inheritence",
+        "description": "oops.inheritence",
+        "peekOfCode": "class Student(User):\n    def __init__(self, id, name, type):\n        super().__init__(type)\n        self.id = id\n        self.name = name\n    def getStudentDetail(self):\n        return f\"Stude ID: {self.id} \\nStudent Name: {self.name}\"\nclass Monitor(Student):\n    def __init__(self, id, name, type, isMonitor):\n        super().__init__(id, name, type)",
+        "detail": "oops.inheritence",
+        "documentation": {}
+    },
+    {
+        "label": "Monitor",
+        "kind": 6,
+        "importPath": "oops.inheritence",
+        "description": "oops.inheritence",
+        "peekOfCode": "class Monitor(Student):\n    def __init__(self, id, name, type, isMonitor):\n        super().__init__(id, name, type)\n        self.isMonitor = True\n    def takeAttendance(self):\n        return f\"Take attendance\"\nclass Teacher(User):\n    def __init__(self, type):\n        super().__init__(type)\n    def getType(self):",
+        "detail": "oops.inheritence",
+        "documentation": {}
+    },
+    {
+        "label": "Teacher",
+        "kind": 6,
+        "importPath": "oops.inheritence",
+        "description": "oops.inheritence",
+        "peekOfCode": "class Teacher(User):\n    def __init__(self, type):\n        super().__init__(type)\n    def getType(self):\n        return self.type\nmonitor = Monitor(1, \"Prajwal\", \"student\", True)\nprint(monitor.getUserType())\nprint(monitor.getStudentDetail())\nteacher = Teacher(\"teacher\")\nprint(teacher.getType())",
+        "detail": "oops.inheritence",
+        "documentation": {}
+    },
+    {
+        "label": "monitor",
+        "kind": 5,
+        "importPath": "oops.inheritence",
+        "description": "oops.inheritence",
+        "peekOfCode": "monitor = Monitor(1, \"Prajwal\", \"student\", True)\nprint(monitor.getUserType())\nprint(monitor.getStudentDetail())\nteacher = Teacher(\"teacher\")\nprint(teacher.getType())",
+        "detail": "oops.inheritence",
+        "documentation": {}
+    },
+    {
+        "label": "teacher",
+        "kind": 5,
+        "importPath": "oops.inheritence",
+        "description": "oops.inheritence",
+        "peekOfCode": "teacher = Teacher(\"teacher\")\nprint(teacher.getType())",
+        "detail": "oops.inheritence",
+        "documentation": {}
+    },
+    {
+        "label": "Animal",
+        "kind": 6,
+        "importPath": "oops.polymorphism",
+        "description": "oops.polymorphism",
+        "peekOfCode": "class Animal:\n    def speak(self):\n        return f\"Animal makes noises.\"\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof\"\nclass Cat(Animal):\n    def speak(self):\n        return \"Meow\"\nanimal = Animal()",
+        "detail": "oops.polymorphism",
+        "documentation": {}
+    },
+    {
+        "label": "Dog",
+        "kind": 6,
+        "importPath": "oops.polymorphism",
+        "description": "oops.polymorphism",
+        "peekOfCode": "class Dog(Animal):\n    def speak(self):\n        return \"Woof\"\nclass Cat(Animal):\n    def speak(self):\n        return \"Meow\"\nanimal = Animal()\nprint(animal.speak())\ndog = Dog()\nprint(dog.speak())",
+        "detail": "oops.polymorphism",
+        "documentation": {}
+    },
+    {
+        "label": "Cat",
+        "kind": 6,
+        "importPath": "oops.polymorphism",
+        "description": "oops.polymorphism",
+        "peekOfCode": "class Cat(Animal):\n    def speak(self):\n        return \"Meow\"\nanimal = Animal()\nprint(animal.speak())\ndog = Dog()\nprint(dog.speak())\ncat = Cat()\nprint(cat.speak()   )",
+        "detail": "oops.polymorphism",
+        "documentation": {}
+    },
+    {
+        "label": "animal",
+        "kind": 5,
+        "importPath": "oops.polymorphism",
+        "description": "oops.polymorphism",
+        "peekOfCode": "animal = Animal()\nprint(animal.speak())\ndog = Dog()\nprint(dog.speak())\ncat = Cat()\nprint(cat.speak()   )",
+        "detail": "oops.polymorphism",
+        "documentation": {}
+    },
+    {
+        "label": "dog",
+        "kind": 5,
+        "importPath": "oops.polymorphism",
+        "description": "oops.polymorphism",
+        "peekOfCode": "dog = Dog()\nprint(dog.speak())\ncat = Cat()\nprint(cat.speak()   )",
+        "detail": "oops.polymorphism",
+        "documentation": {}
+    },
+    {
+        "label": "cat",
+        "kind": 5,
+        "importPath": "oops.polymorphism",
+        "description": "oops.polymorphism",
+        "peekOfCode": "cat = Cat()\nprint(cat.speak()   )",
+        "detail": "oops.polymorphism",
+        "documentation": {}
+    }
+]
